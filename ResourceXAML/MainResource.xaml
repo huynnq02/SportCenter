@@ -1,0 +1,22 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:SportCenter.ResourceXAML"
+    xmlns:viewmodel="clr-namespace:SportCenter.ViewModel">
+    <viewmodel:SoccerFieldViewModel x:Key="SoccerFieldVM" />
+    <viewmodel:BasketballFieldViewModel x:Key="BasketballFieldVM" />
+    <viewmodel:VolleyballFieldViewModel x:Key="VolleyballFieldVM" />
+    <viewmodel:MainViewModel x:Key="MainVM" />
+    <viewmodel:LoginViewModel x:Key="LoginVM" />
+    <viewmodel:BillViewModel x:Key="BillVM" />
+    <viewmodel:BillViewModel_Football2 x:Key="BillVM_FB2" />
+    <viewmodel:BillViewModel_BasketBall x:Key="BillVM_BKB" />
+    <viewmodel:BillViewModel_VolleyBall x:Key="BillVM_VLB" />
+    <viewmodel:BillReportViewModel x:Key="BillReportVM" />
+    <viewmodel:AddFieldViewModel x:Key="AddFieldVM" />
+    <viewmodel:BookingViewModel x:Key="BookingVM" />
+    <viewmodel:FastBookingBasketballViewModel x:Key="FastBookingBasketballVM" />
+    <viewmodel:FastBookingSoccerViewModel x:Key="FastBookingSoccerVM" />
+    <viewmodel:FastBookingVolleyballViewModel x:Key="FastBookingVolleyballVM" />
+    <viewmodel:EmployeeViewModel x:Key="EmployeeVM" />
+</ResourceDictionary>
