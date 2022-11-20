@@ -210,5 +210,5 @@ Services/SFS/1-Presentation/WTO.SFS.SPA/_dist/*
 out/
 # Others
 .DS_Store
-DataProvider.cs
+# DataProvider.cs
 Model1.edmx
