@@ -12,14 +12,16 @@ namespace SportCenter.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class employee
+    public partial class spt_fallback_usg
     {
-        public int id { get; set; }
-        public string name { get; set; }
-        public Nullable<System.DateTime> dateOfBirth { get; set; }
-        public string role { get; set; }
-        public Nullable<decimal> salary { get; set; }
-        public string phoneNumber { get; set; }
-        public byte[] imageFile { get; set; }
+        public string xserver_name { get; set; }
+        public System.DateTime xdttm_ins { get; set; }
+        public System.DateTime xdttm_last_ins_upd { get; set; }
+        public Nullable<int> xfallback_vstart { get; set; }
+        public short dbid { get; set; }
+        public int segmap { get; set; }
+        public int lstart { get; set; }
+        public int sizepg { get; set; }
+        public int vstart { get; set; }
     }
 }

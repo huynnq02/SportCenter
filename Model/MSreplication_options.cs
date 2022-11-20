@@ -12,14 +12,13 @@ namespace SportCenter.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class employee
+    public partial class MSreplication_options
     {
-        public int id { get; set; }
-        public string name { get; set; }
-        public Nullable<System.DateTime> dateOfBirth { get; set; }
-        public string role { get; set; }
-        public Nullable<decimal> salary { get; set; }
-        public string phoneNumber { get; set; }
-        public byte[] imageFile { get; set; }
+        public string optname { get; set; }
+        public bool value { get; set; }
+        public int major_version { get; set; }
+        public int minor_version { get; set; }
+        public int revision { get; set; }
+        public int install_failures { get; set; }
     }
 }
