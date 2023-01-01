@@ -5,11 +5,19 @@ using System.Text;
 using SportCenter.Model;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
+using Microsoft.Win32;
+using OfficeOpenXml;
+using System.IO;
 
 namespace SportCenter.ViewModel
 {
     public class BillReportViewModel : BaseViewModel
     {
+        public ICommand ExportToExcelCommand { get; set; }
+        // export to excel
+        
+
         protected ObservableCollection<bookingInfo> _bookingList; //Main 
         protected ObservableCollection<bookingInfo> bookinglist
         {
@@ -57,6 +65,7 @@ namespace SportCenter.ViewModel
 
         public BillReportViewModel()
         {
+            ExportToExcelCommand = new RelayCommand<object>((parameter) => true, (parameter) => ExportToExcel());
             _bookingList = new ObservableCollection<bookingInfo>(DataProvider.Ins.DB.bookingInfoes);
             _billList = new ObservableCollection<bill>(DataProvider.Ins.DB.bills);
             _fieldList = new ObservableCollection<field>(DataProvider.Ins.DB.fields);
@@ -64,6 +73,44 @@ namespace SportCenter.ViewModel
             Update_DatagridView();
             Load_DatagridView();
             
+        }
+
+        private void ExportToExcel()
+        {
+            // Retrieve the data from the database using the DataProvider class
+            var data = DataProvider.Ins.DB.bookingInfoes.ToList();
+
+            // Create a new Excel file
+            using (ExcelPackage excelPackage = new ExcelPackage())
+            {
+                // Create a new worksheet
+                ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets.Add("Sheet1");
+
+                // Add the data to the worksheet
+                for (int i = 0; i < data.Count; i++)
+                {
+                    worksheet.Cells[i + 1, 1].Value = data[i].id;
+                    worksheet.Cells[i + 1, 2].Value = data[i].idField;
+                    worksheet.Cells[i + 1, 3].Value = data[i].datePlay;
+                    worksheet.Cells[i + 1, 4].Value = data[i].start_time;
+                    worksheet.Cells[i + 1, 5].Value = data[i].end_time;
+                    worksheet.Cells[i + 1, 6].Value = data[i].Status;
+                    worksheet.Cells[i + 1, 7].Value = data[i].Customer_name;
+                    worksheet.Cells[i + 1, 8].Value = data[i].Customer_PhoneNum;
+                }
+
+                // Save the Excel file
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.FileName = "ExportedData";
+                saveFileDialog.DefaultExt = ".xlsx";
+                bool? result = saveFileDialog.ShowDialog();
+                if (result == true)
+                {
+                    FileInfo file = new FileInfo(saveFileDialog.FileName);
+                    excelPackage.SaveAs(file);
+                }
+            }
+
         }
 
         public void Update_DatagridView()

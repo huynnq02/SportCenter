@@ -3,9 +3,11 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:SportCenter"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:uc="clr-namespace:SportCenter.UserControlKteam"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:local="clr-namespace:SportCenter"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     x:Name="Bill_report"
     Title="Bill_Report"
     Width="600"
@@ -26,6 +28,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="100" />
+            <RowDefinition Height="75" />
+
             <RowDefinition />
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
@@ -40,8 +44,38 @@
                 FontSize="100"
                 Text="BILL REPORT" />
         </Grid>
-
         <Grid Grid.Row="2">
+            <Button
+                Width="150"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                HorizontalContentAlignment="Stretch"
+                Background="#00ADB5"
+                Margin="0,0,20,0"
+                Command="{Binding ExportToExcelCommand}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="5*" />
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon
+                        Grid.Column="0"
+                        Width="Auto"
+                        Height="Auto"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Kind="FastForward" />
+                    <TextBlock
+                        Grid.Column="1"
+                        Margin="5,0,0,0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Text="Export to Excel" />
+                </Grid>
+            </Button>
+
+        </Grid>
+        <Grid Grid.Row="3">
             <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
                 <ItemsControl x:Name="IcUCbillreport" ItemsSource="{Binding DatagridListView}">
                     <ItemsControl.ItemTemplate>
