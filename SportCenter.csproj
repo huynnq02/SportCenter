@@ -199,6 +199,9 @@
     <Compile Include="ProductDetailsControl.xaml.cs">
       <DependentUpon>ProductDetailsControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="RegisterScreen.xaml.cs">
+      <DependentUpon>RegisterScreen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SellGoodsControl.xaml.cs">
       <DependentUpon>SellGoodsControl.xaml</DependentUpon>
     </Compile>
@@ -236,6 +239,7 @@
     <Compile Include="ViewModel\BaseFieldSoccer.cs" />
     <Compile Include="ViewModel\BaseFieldVolleyball.cs" />
     <Compile Include="ViewModel\BasketballFieldViewModel.cs" />
+    <Compile Include="ViewModel\RegisterViewModel.cs" />
     <Compile Include="ViewModel\SoccerFieldViewModel.cs" />
     <Compile Include="PayMent_tem.xaml.cs">
       <DependentUpon>PayMent_tem.xaml</DependentUpon>
@@ -324,6 +328,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ProductDetailsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RegisterScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

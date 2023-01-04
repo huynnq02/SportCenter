@@ -3,11 +3,11 @@
 namespace SportCenter
 {
     /// <summary>
-    /// Interaction logic for Window1.xaml
+    /// Interaction logic for RegisterScreen.xaml
     /// </summary>
-    public partial class LoginWindow : Window
+    public partial class RegisterScreen : Window
     {
-        public LoginWindow()
+        public RegisterScreen()
         {
             InitializeComponent();
         }

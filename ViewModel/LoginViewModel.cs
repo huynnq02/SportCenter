@@ -27,6 +27,7 @@ namespace SportCenter.ViewModel
         public ICommand CloseCommand { get; set; }
         public ICommand PasswordChangedCommand { get; set; }
         public ICommand ChangepasswordCommand { get; set; }
+        public ICommand RegisterCommand { get; set; }
         public LoginViewModel()
         {
             IsLogin = false;
@@ -36,6 +37,7 @@ namespace SportCenter.ViewModel
             ChangepasswordCommand = new RelayCommand<object>((parameter) => true, (parameter) => ChangePW());
             CloseCommand = new RelayCommand<Window>((p) => { return true; }, (p) => { p.Close(); });
             PasswordChangedCommand = new RelayCommand<PasswordBox>((p) => { return true; }, (p) => { Password = p.Password; });
+            RegisterCommand = new RelayCommand<object>((p) => { return true; }, (p) => { Register(); });
         }
 
         private void ChangePW()
@@ -62,7 +64,11 @@ namespace SportCenter.ViewModel
                 MessageBox.Show("Wrong Password");
             }
         }
-
+        private void Register()
+        {
+            RegisterScreen registerScreen = new RegisterScreen();
+            registerScreen.Show();
+        }
         void Login(Window p)
         {
             if (p == null)
