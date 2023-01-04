@@ -1,12 +1,9 @@
-﻿using System;
+﻿using SportCenter.Model;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
-using SportCenter.Model;
 
 namespace SportCenter.ViewModel
 {
@@ -104,11 +101,11 @@ namespace SportCenter.ViewModel
             temp.condition = SelectConditionField;
             if (temp.name == null || temp.idType.ToString() == null || temp.condition == null)
             {
-                MessageBox.Show("Please filll all information!");
+                MessageBox.Show("Please fill all information!");
                 return;
             }
             ObservableCollection<field> List = new ObservableCollection<field>(DataProvider.Ins.DB.fields.Where(x => x.idType == temp.idType));
-            foreach(var item in List)
+            foreach (var item in List)
             {
                 if (item.name == temp.name)
                 {
