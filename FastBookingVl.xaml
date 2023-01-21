@@ -51,10 +51,10 @@
                             <RowDefinition />
                             <RowDefinition />
                             <RowDefinition />
-                            <RowDefinition />
                         </Grid.RowDefinitions>
                         <WrapPanel
                             Grid.Row="0"
+                            Margin="0 0 0 10"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center">
                             <Label Width="100" Content="Name: " />
@@ -65,6 +65,7 @@
                         </WrapPanel>
                         <WrapPanel
                             Grid.Row="1"
+                            Margin="0 0 0 10"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center">
                             <Label Width="100" Content="Phone: " />
@@ -77,28 +78,34 @@
                             <Label
                                 Width="100"
                                 VerticalAlignment="Center"
-                                Content="Day: " />
+                                Content="Date play: " />
                             <DatePicker
                                 x:Name="dp"
+                                 Width="300"
                                 Margin="0"
                                 VerticalAlignment="Center"
-                                materialDesign:HintAssist.Hint="Date play"
+                               
                                 SelectedDate="{Binding FBdateplay}"
                                 Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
                         </WrapPanel>
-                        <WrapPanel Grid.Row="3">
-                            <Label Width="100" Content="Start time:" />
-                            <materialDesign:TimePicker
+                        <Grid Grid.Row="3" Margin="0 10 0 0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <WrapPanel Grid.Column="0" Margin="0 0 55 0">
+                                <Label Width="100" Content="Start time:" />
+                                <materialDesign:TimePicker
                                 x:Name="startT_picker"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
                                 materialDesign:HintAssist.Hint="Start time"
                                 Is24Hours="True"
                                 SelectedTime="{Binding FBstarttime}" />
-                        </WrapPanel>
-                        <WrapPanel Grid.Row="4">
-                            <Label Width="100" Content="End time:" />
-                            <materialDesign:TimePicker
+                            </WrapPanel>
+                            <WrapPanel Grid.Column="1">
+                                <Label Width="100" Content="End time:" />
+                                <materialDesign:TimePicker
                                 x:Name="endT_picker"
                                 Height="30"
                                 HorizontalAlignment="Center"
@@ -106,17 +113,19 @@
                                 materialDesign:HintAssist.Hint="End time"
                                 Is24Hours="True"
                                 SelectedTime="{Binding FBendtime}" />
-                        </WrapPanel>
+                            </WrapPanel>
+                        </Grid>
+                        
                         <Grid
                             Grid.Row="4"
                             Grid.RowSpan="2"
-                            Margin="0,30,0,-54.6">
+                            Margin="0,5,0,-54.6">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition />
                                 <ColumnDefinition />
                             </Grid.ColumnDefinitions>
                             <Button
-                                Grid.Column="0"
+                                Grid.Column="2"
                                 Width="128"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
@@ -130,7 +139,8 @@
                                     Text="Add" />
                             </Button>
                             <Button
-                                Grid.Column="2"
+                                Grid.Column="0"
+                                Background="#00ADB5"
                                 Width="128"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
