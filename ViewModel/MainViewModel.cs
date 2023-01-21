@@ -615,8 +615,8 @@ namespace SportCenter.ViewModel
                 Title = "Football",
                 Values = new ChartValues<ObservableValue> { new ObservableValue(decimal.ToDouble(allincomefootball)) },
                 DataLabels = true,
-                FontSize = 16,
-                LabelPoint = ChartPoint => string.Format("{0} ({1:P})", ChartPoint.Y, ChartPoint.Participation)
+                FontSize = 14,
+                LabelPoint = ChartPoint => string.Format("{1:P}", ChartPoint.Y, ChartPoint.Participation)
             };
             _SeriesCollection.Add(footballseries);
 
@@ -627,8 +627,8 @@ namespace SportCenter.ViewModel
                 Title = "Volleyball",
                 Values = new ChartValues<ObservableValue> { new ObservableValue(decimal.ToDouble(allincomevolleyball)) },
                 DataLabels = true,
-                FontSize = 16,
-                LabelPoint = ChartPoint => string.Format("{0} ({1:P})", ChartPoint.Y, ChartPoint.Participation)
+                FontSize = 14,
+                LabelPoint = ChartPoint => string.Format("{1:P}", ChartPoint.Y, ChartPoint.Participation)
             };
             _SeriesCollection.Add(volleyballseries);
 
@@ -638,8 +638,8 @@ namespace SportCenter.ViewModel
                 Title = "Basketball",
                 Values = new ChartValues<ObservableValue> { new ObservableValue(decimal.ToDouble(allincomebasketball)) },
                 DataLabels = true,
-                FontSize = 16,
-                LabelPoint = ChartPoint => string.Format("{0} ({1:P})", ChartPoint.Y, ChartPoint.Participation)
+                FontSize = 14,
+                LabelPoint = ChartPoint => string.Format("{1:P}", ChartPoint.Y, ChartPoint.Participation)
             };
             _SeriesCollection.Add(basketballseries);
 

@@ -10,22 +10,21 @@
     <Grid>
         <Button
             Width="400"
+            materialDesign:ButtonAssist.CornerRadius="10"
             Height="150"
             Margin="10,10,10,10"
             Background="#00ADB5"
             Command="{Binding Path=DataContext.ShowInfofieldCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ItemsControl}}}"
             CommandParameter="{Binding}"
             Style="{StaticResource MaterialDesignRaisedDarkButton}">
-            <materialDesign:Card
+            <Grid
                 Grid.Row="0"
                 Width="350"
                 Height="150"
                 Margin="10,10,10,10"
-                Padding="8"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Foreground="#393E46"
-                UniformCornerRadius="5">
+                >
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="2*" />
@@ -72,9 +71,9 @@
                                 Margin="10,0,0,0"
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Bottom"
-                                FontSize="25"
+                                FontSize="20"
                                 FontWeight="ExtraBold"
-                                Foreground="#8c9aa1"
+                                Foreground="Black"
                                 Text="{Binding List_FieldSoccer.name}"
                                 TextWrapping="WrapWithOverflow" />
                         </Grid>
@@ -85,17 +84,19 @@
                             </Grid.ColumnDefinitions>
                             <TextBlock
                                 Grid.Column="0"
-                                Margin="10"
-                                HorizontalAlignment="Right"
-                                VerticalAlignment="Center"
+                                Margin="10 0 0 0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
                                 FontSize="15"
-                                Foreground="Black"
+                                Foreground="#0A0A0A"
+                                FontWeight="Normal"
                                 Text="Condition: " />
                             <TextBlock
                                 Grid.Column="1"
                                 HorizontalAlignment="Left"
-                                VerticalAlignment="Center"
+                                VerticalAlignment="Top"
                                 FontSize="15"
+                                FontWeight="Medium"
                                 Foreground="Black"
                                 Text="{Binding List_FieldSoccer.condition}"
                                 TextWrapping="WrapWithOverflow" />
@@ -104,7 +105,7 @@
 
                 </Grid>
 
-            </materialDesign:Card>
+            </Grid>
         </Button>
     </Grid>
 </UserControl>
