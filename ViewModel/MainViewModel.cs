@@ -6,10 +6,7 @@ using SportCenter.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -96,6 +93,16 @@ namespace SportCenter.ViewModel
         private string _unitgood;
         public string unitgood { get => _unitgood; set { _unitgood = value; OnPropertyChanged(); } }
 
+        private string _role;
+        public string Role
+        {
+            get { return _role; }
+            set
+            {
+                _role = value;
+                OnPropertyChanged(nameof(Role));
+            }
+        }
 
 
 
@@ -387,14 +394,14 @@ namespace SportCenter.ViewModel
             {
                 ListbookingCombobox.Clear();
             }
-                foreach (var item in tempbooking)
+            foreach (var item in tempbooking)
             {
                 if (item.Status == "unpay")
                 {
                     ListbookingCombobox.Add(item);
                 }
             }
-            
+
         }
 
         public void AddGoods(Grid parameter)
@@ -731,7 +738,10 @@ namespace SportCenter.ViewModel
                 adding = temp_list1[i];
                 adding.Baseinfo_SumCusMoneyAmount = total1;
                 adding.Baseinfo_SumBillAmount = billnum;
+                String employee = "";
+
                 temp_list3.Add(adding);
+
             }
             foreach (var item in temp_list2)
             {

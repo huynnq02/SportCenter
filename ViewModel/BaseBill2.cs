@@ -1,11 +1,6 @@
-﻿using System;
+﻿using SportCenter.Model;
+using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SportCenter.Model;
-using SportCenter.ViewModel;
 
 namespace SportCenter.ViewModel
 {
@@ -17,5 +12,6 @@ namespace SportCenter.ViewModel
         public bookingInfo b_bookinginfo { get; set; }
         public Decimal _TotalMoney { get; set; }
         public Decimal _GoodMoney { get; set; }
+        public String _Employee { get; set; }
     }
 }

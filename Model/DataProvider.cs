@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SportCenter.Model
+﻿namespace SportCenter.Model
 {
     public class DataProvider
     {
@@ -25,11 +19,11 @@ namespace SportCenter.Model
 
 
 
-        public sportcenterEntities1 DB { get; set; }
+        public sportcenterEntities5 DB { get; set; }
 
         private DataProvider()
         {
-            DB = new sportcenterEntities1();
+            DB = new sportcenterEntities5();
 
 
         }

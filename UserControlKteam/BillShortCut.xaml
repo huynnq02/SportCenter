@@ -228,7 +228,7 @@
                 <StackPanel
                     Height="20"
                     Margin="5,0,5,5"
-                    VerticalAlignment="Bottom">
+                 >
                     <TextBlock
                         Width="auto"
                         Margin="50,0,0,0"
@@ -251,6 +251,35 @@
                         FontWeight="SemiBold"
                         Foreground="Red"
                         Text="{Binding _TotalMoney, StringFormat={}{0:.}}"
+                        TextAlignment="Right"
+                        TextWrapping="Wrap" />
+                </StackPanel>
+                <StackPanel
+                    Height="20"
+                    Margin="5,0,5,5"
+                    VerticalAlignment="Bottom">
+                    <TextBlock
+                        Width="auto"
+                        Margin="50,0,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        FontFamily="Ubuntu Mono"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Foreground="#FF4712A9"
+                        Text="Employee"
+                        TextAlignment="Right"
+                        TextWrapping="Wrap" />
+                    <TextBlock
+                        Width="auto"
+                        Margin="0,-14,10,0"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        FontFamily="Ubuntu Mono"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Foreground="Red"
+                        Text="{Binding _Employee}"
                         TextAlignment="Right"
                         TextWrapping="Wrap" />
                 </StackPanel>

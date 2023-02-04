@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SportCenter.ViewModel
+﻿namespace SportCenter.ViewModel
 {
     public class BaseCustomerInfo : BaseViewModel
     {
@@ -14,6 +8,6 @@ namespace SportCenter.ViewModel
         public int Baseinfo_SumCusMoneyAmount { get; set; }
         public int Baseinfo_SumBillAmount { get; set; }
         public string Baseinfo_TypeCus { get; set; }
-
+        public string Base_Employee { get; set; }
     }
 }

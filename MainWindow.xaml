@@ -1541,7 +1541,7 @@
 
                     </Grid>
                 </TabItem>
-                <TabItem>
+                <TabItem Visibility="{Binding Role, Converter={StaticResource RoleToVisibilityConverter}}">
                     <TabItem.Header>
                         <StackPanel
                             Width="auto"

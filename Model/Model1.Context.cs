@@ -13,10 +13,10 @@ namespace SportCenter.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class sportcenterEntities1 : DbContext
+    public partial class sportcenterEntities5 : DbContext
     {
-        public sportcenterEntities1()
-            : base("name=sportcenterEntities1")
+        public sportcenterEntities5()
+            : base("name=sportcenterEntities5")
         {
         }
     
@@ -33,10 +33,6 @@ namespace SportCenter.Model
         public virtual DbSet<field> fields { get; set; }
         public virtual DbSet<fieldtype> fieldtypes { get; set; }
         public virtual DbSet<good> goods { get; set; }
-        public virtual DbSet<MSreplication_options> MSreplication_options { get; set; }
-        public virtual DbSet<spt_fallback_db> spt_fallback_db { get; set; }
-        public virtual DbSet<spt_fallback_dev> spt_fallback_dev { get; set; }
-        public virtual DbSet<spt_fallback_usg> spt_fallback_usg { get; set; }
-        public virtual DbSet<spt_monitor> spt_monitor { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }
