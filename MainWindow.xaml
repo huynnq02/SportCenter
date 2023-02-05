@@ -1949,7 +1949,7 @@
                                                     Padding="0"
                                                     VerticalAlignment="Center"
                                                     Background="#5C0DAC"
-                                                    Command="{Binding addCommand}"
+                                                    Command="{Binding OpenAddEmployeeWindow}"
                                                     CommandParameter="{Binding ElementName=grdSelectImg1}"
                                                     Content="Add"
                                                     FocusVisualStyle="{x:Null}"

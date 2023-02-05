@@ -13,10 +13,10 @@ namespace SportCenter.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class sportcenterEntities5 : DbContext
+    public partial class sportcenterEntities6 : DbContext
     {
-        public sportcenterEntities5()
-            : base("name=sportcenterEntities5")
+        public sportcenterEntities6()
+            : base("name=sportcenterEntities6")
         {
         }
     
@@ -33,6 +33,5 @@ namespace SportCenter.Model
         public virtual DbSet<field> fields { get; set; }
         public virtual DbSet<fieldtype> fieldtypes { get; set; }
         public virtual DbSet<good> goods { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

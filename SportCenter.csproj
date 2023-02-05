@@ -99,6 +99,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Add_employee.xaml.cs">
+      <DependentUpon>Add_employee.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Add_Field.xaml.cs">
       <DependentUpon>Add_Field.xaml</DependentUpon>
     </Compile>
@@ -183,9 +186,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Model\sysdiagram.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="ProductDetailsControl.xaml.cs">
       <DependentUpon>ProductDetailsControl.xaml</DependentUpon>
     </Compile>
@@ -257,6 +257,10 @@
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Add_employee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Add_Field.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

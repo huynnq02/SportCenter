@@ -49,6 +49,8 @@ namespace SportCenter.ViewModel
         public ICommand deleteCommand { get; set; }
         public ICommand ReloadCommand { get; set; }
 
+        public ICommand OpenAddEmployeeWindow { get; set; }
+
         public ICommand SelectImageCommand { get; set; }
 
         private employee _SelectedItem;
@@ -75,6 +77,7 @@ namespace SportCenter.ViewModel
         {
             Listemployee = new ObservableCollection<employee>(DataProvider.Ins.DB.employees);
             LoadEmployeeData();
+            OpenAddEmployeeWindow = new RelayCommand<object>((parameter) => true, (parameter) => f_Open_Add_employee());
             SelectImageCommand = new RelayCommand<Grid>((parameter) => true, (parameter) => ChooseImage(parameter));
             ReloadCommand = new RelayCommand<Grid>((parameter) => true, (parameter) => ReloadEmployee(parameter));
             // Add goods
@@ -208,8 +211,12 @@ namespace SportCenter.ViewModel
 
                 return imgSrc;
             }
-        
 
+        private void f_Open_Add_employee()
+        {
+            Add_employee rp = new Add_employee();
+            rp.Show();
+        }
         private void ChooseImage(Grid parameter)
         {
 

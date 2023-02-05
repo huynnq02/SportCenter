@@ -129,7 +129,7 @@ namespace SportCenter.ViewModel
 
         public ICommand OpenBillReportWindow { get; set; }
 
-
+        public ICommand OpenAddEmployeeWindow { get; set; }
 
         // Good VM
         public ICommand addCommand { get; set; }
@@ -242,6 +242,7 @@ namespace SportCenter.ViewModel
             SelectImageCommand = new RelayCommand<Grid>((parameter) => true, (parameter) => ChooseImage(parameter));
             ReloadCommand = new RelayCommand<object>((parameter) => true, (parameter) => ReloadBookingFunction());
             OpenBillReportWindow = new RelayCommand<object>((parameter) => true, (parameter) => f_Open_Bill_Report());
+            OpenAddEmployeeWindow = new RelayCommand<object>((parameter) => true, (parameter) => f_Open_Add_employee());
             ReloadStatictics = new RelayCommand<object>((parameter) => true, (parameter) => LoadStatictics());
             DeleteAllBillCommand = new RelayCommand<object>((parameter) => true, (parameter) => DeleteAllBillFunction());
             LogoutCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
@@ -806,6 +807,12 @@ namespace SportCenter.ViewModel
         private void f_Open_Bill_Report()
         {
             Bill_Report rp = new Bill_Report();
+            rp.Show();
+        }
+
+        private void f_Open_Add_employee()
+        {
+            Add_employee rp = new Add_employee();
             rp.Show();
         }
 
