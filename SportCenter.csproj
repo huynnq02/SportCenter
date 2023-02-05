@@ -133,6 +133,7 @@
       <DependentUpon>Basketball_Field_Bill.xaml</DependentUpon>
     </Compile>
     <Compile Include="Helper\RoleToVisibilityConverter.cs" />
+    <Compile Include="Helper\GlobalData.cs" />
     <Compile Include="InfoFieldBk.xaml.cs">
       <DependentUpon>InfoFieldBk.xaml</DependentUpon>
     </Compile>

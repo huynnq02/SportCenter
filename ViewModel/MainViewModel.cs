@@ -2,6 +2,7 @@
 using LiveCharts.Defaults;
 using LiveCharts.Wpf;
 using Microsoft.Win32;
+using SportCenter.Helper;
 using SportCenter.Model;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,25 @@ namespace SportCenter.ViewModel
     public class MainViewModel : BaseViewModel
 
     {
+        private Visibility _employeeTabVisibility;
+        public Visibility EmployeeTabVisibility
+        {
+            get
+            {
+                _employeeTabVisibility = GlobalData.isLoggedIn == true && GlobalData.role.Equals("staff")
+                    ? Visibility.Collapsed
+                    : Visibility.Visible;
+                return _employeeTabVisibility;
+            }
+            set
+            {
+                _employeeTabVisibility = value;
+                OnPropertyChanged();
+
+            }
+
+        }
+
         //ListBill
         private ObservableCollection<bill> _Listbills;
         public ObservableCollection<bill> Listbills { get => _Listbills; set { _Listbills = value; OnPropertyChanged(); } }
@@ -176,7 +196,6 @@ namespace SportCenter.ViewModel
 
         public MainViewModel()
         {
-
             _ListbookingCombobox = new ObservableCollection<bookingInfo>();
             _Listbooking = new ObservableCollection<bookingInfo>(DataProvider.Ins.DB.bookingInfoes);
             _Listbooking = new ObservableCollection<bookingInfo>(DataProvider.Ins.DB.bookingInfoes);
@@ -738,7 +757,6 @@ namespace SportCenter.ViewModel
                 adding = temp_list1[i];
                 adding.Baseinfo_SumCusMoneyAmount = total1;
                 adding.Baseinfo_SumBillAmount = billnum;
-                String employee = "";
 
                 temp_list3.Add(adding);
 

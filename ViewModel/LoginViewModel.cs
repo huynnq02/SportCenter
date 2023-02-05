@@ -1,20 +1,26 @@
-﻿using SportCenter.Model;
-using System;
-using System.Collections.Generic;
+﻿using SportCenter.Helper;
+using SportCenter.Model;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace SportCenter.ViewModel
 {
-    class LoginViewModel : BaseViewModel
+    public class LoginViewModel : BaseViewModel
     {
         public bool IsLogin { get; set; }
         private string _UserName;
         public string UserName { get => _UserName; set { _UserName = value; OnPropertyChanged(); } }
+        private string _Role;
+        public string Role
+        {
+            get => _Role; set
+            {
+                _Role = value; OnPropertyChanged();
+            }
+        }
         private string _NewPassword;
         public string NewPassword { get => _NewPassword; set { _NewPassword = value; OnPropertyChanged(); } }
         private string _Password;
@@ -30,6 +36,7 @@ namespace SportCenter.ViewModel
         public ICommand RegisterCommand { get; set; }
         public LoginViewModel()
         {
+
             IsLogin = false;
             Password = "";
             UserName = "";
@@ -46,11 +53,12 @@ namespace SportCenter.ViewModel
             var accCount1 = DataProvider.Ins.DB.accounts.Where(x => x.username == UserName && x.password == currentpassEncode).SingleOrDefault();
 
 
-            if (accCount1 !=null)
+            if (accCount1 != null)
             {
-                if (NewPassword == ConfirmPassword) {
+                if (NewPassword == ConfirmPassword)
+                {
                     accCount1.password = CreateMD5(Base64Encode(NewPassword));
-                MessageBox.Show("Password changed");
+                    MessageBox.Show("Password changed");
                     DataProvider.Ins.DB.SaveChanges();
                 }
                 else
@@ -78,13 +86,23 @@ namespace SportCenter.ViewModel
 
 
             if (accCount > 0)
-            {                
-                IsLogin = true;                              
+            {
+                GlobalData.ClearData();
+                account account = DataProvider.Ins.DB.accounts.Where(x => x.username == UserName).SingleOrDefault();
+                IsLogin = true;
+                GlobalData.isLoggedIn = true;
+                GlobalData.username = UserName;
+                GlobalData.id = account.id;
+                GlobalData.role = account.role;
+                GlobalData.name = account.name;
+                MessageBox.Show(GlobalData.isLoggedIn + " " + GlobalData.username + " " + GlobalData.id + " " + GlobalData.role + " " + GlobalData.role.Equals("staff"));
+
                 p.Close();
             }
             else
             {
                 IsLogin = false;
+                GlobalData.isLoggedIn = false;
                 MessageBox.Show("Incorrect Username or Password !");
             }
 

@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using SportCenter.Model;
-using System.Threading.Tasks;
-using System.Collections.ObjectModel;
-using System.Windows.Input;
-using Microsoft.Win32;
+﻿using Microsoft.Win32;
 using OfficeOpenXml;
+using SportCenter.Model;
+using System;
+using System.Collections.ObjectModel;
 using System.IO;
+using System.Linq;
+using System.Windows.Input;
 
 namespace SportCenter.ViewModel
 {
@@ -16,7 +13,7 @@ namespace SportCenter.ViewModel
     {
         public ICommand ExportToExcelCommand { get; set; }
         // export to excel
-        
+
 
         protected ObservableCollection<bookingInfo> _bookingList; //Main 
         protected ObservableCollection<bookingInfo> bookinglist
@@ -72,7 +69,7 @@ namespace SportCenter.ViewModel
             _DatagridListView = new ObservableCollection<BaseBill2>();
             Update_DatagridView();
             Load_DatagridView();
-            
+
         }
 
         private void ExportToExcel()
@@ -140,6 +137,7 @@ namespace SportCenter.ViewModel
                         {
                             Adding._TotalMoney = item2.totalmoney;
                             Adding.b_bookinginfo = item;
+                            Adding._Employee = item2.account.name;
                         }
                     }
                     foreach (var item3 in temp_field)    // take field info

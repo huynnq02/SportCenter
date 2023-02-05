@@ -1,4 +1,5 @@
-﻿using SportCenter.Model;
+﻿using SportCenter.Helper;
+using SportCenter.Model;
 using SportCenter.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -6,16 +7,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace SportCenter
 {
@@ -37,7 +29,7 @@ namespace SportCenter
             string _txtstarttime = start_time;
             string _txtendtime = end_time;
             string _txtfieldprice = (decimal.ToInt32(Field_price)).ToString();
-;           string _txtidbooking = id_booking.ToString();
+            ; string _txtidbooking = id_booking.ToString();
             int _goodtotalvalue = 0;
             idbooking_DB_add = id_booking;
 
@@ -94,6 +86,7 @@ namespace SportCenter
             txbTotal.Text = _totalbillvalue.ToString();
             txbCustomerName.Text = _cName;
             txbCustomerPhoneNumber.Text = _cPhone;
+            txbEmployeeName.Text = GlobalData.name;
 
             // --------- Setup datagrid value for binding to .xaml ----------
             DG_goodListbooking.ItemsSource = ListgoodBook;
@@ -131,6 +124,7 @@ namespace SportCenter
             {
                 adding_DB.idBookingInfo = idbooking_DB_add;
                 adding_DB.totalmoney = totalmoney_DB_add;
+                adding_DB.idAccount = GlobalData.id;
             }
             List<bookingInfo> Update_bookigStatus = new List<bookingInfo>(DataProvider.Ins.DB.bookingInfoes);
             foreach (var item in Update_bookigStatus)

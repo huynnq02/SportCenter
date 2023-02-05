@@ -14,7 +14,7 @@
     Title="Sport Center Management Application"
     Width="1300"
     Height="700"
-    DataContext="{StaticResource MainVM}"
+    DataContext="{DynamicResource MainVM}"
     FontFamily="{DynamicResource MaterialDesignFont}"
     ResizeMode="NoResize"
     TextElement.FontSize="13"
@@ -1541,7 +1541,7 @@
 
                     </Grid>
                 </TabItem>
-                <TabItem Visibility="{Binding Role, Converter={StaticResource RoleToVisibilityConverter}}">
+                <TabItem Visibility="{Binding EmployeeTabVisibility}">
                     <TabItem.Header>
                         <StackPanel
                             Width="auto"
