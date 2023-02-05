@@ -1,8 +1,9 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:SportCenter.ResourceXAML"
-    xmlns:viewmodel="clr-namespace:SportCenter.ViewModel">
+    xmlns:viewmodel="clr-namespace:SportCenter.ViewModel"
+    xmlns:helper="clr-namespace:SportCenter.Helper"
+    >
     <viewmodel:SoccerFieldViewModel x:Key="SoccerFieldVM" />
     <viewmodel:BasketballFieldViewModel x:Key="BasketballFieldVM" />
     <viewmodel:VolleyballFieldViewModel x:Key="VolleyballFieldVM" />
@@ -19,5 +20,6 @@
     <viewmodel:FastBookingVolleyballViewModel x:Key="FastBookingVolleyballVM" />
     <viewmodel:EmployeeViewModel x:Key="EmployeeVM" />
     <viewmodel:RegisterViewModel x:Key="RegisterVM" />
-
+    <helper:RoleToVisibilityConverter x:Key="RoleToVisibilityConverter"/>
+    
 </ResourceDictionary>

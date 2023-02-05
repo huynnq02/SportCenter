@@ -2,14 +2,12 @@
 using LiveCharts.Defaults;
 using LiveCharts.Wpf;
 using Microsoft.Win32;
+using SportCenter.Helper;
 using SportCenter.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -21,6 +19,25 @@ namespace SportCenter.ViewModel
     public class MainViewModel : BaseViewModel
 
     {
+        private Visibility _employeeTabVisibility;
+        public Visibility EmployeeTabVisibility
+        {
+            get
+            {
+                _employeeTabVisibility = GlobalData.isLoggedIn == true && GlobalData.role.Equals("staff")
+                    ? Visibility.Collapsed
+                    : Visibility.Visible;
+                return _employeeTabVisibility;
+            }
+            set
+            {
+                _employeeTabVisibility = value;
+                OnPropertyChanged();
+
+            }
+
+        }
+
         //ListBill
         private ObservableCollection<bill> _Listbills;
         public ObservableCollection<bill> Listbills { get => _Listbills; set { _Listbills = value; OnPropertyChanged(); } }
@@ -96,6 +113,16 @@ namespace SportCenter.ViewModel
         private string _unitgood;
         public string unitgood { get => _unitgood; set { _unitgood = value; OnPropertyChanged(); } }
 
+        private string _role;
+        public string Role
+        {
+            get { return _role; }
+            set
+            {
+                _role = value;
+                OnPropertyChanged(nameof(Role));
+            }
+        }
 
 
 
@@ -169,7 +196,6 @@ namespace SportCenter.ViewModel
 
         public MainViewModel()
         {
-
             _ListbookingCombobox = new ObservableCollection<bookingInfo>();
             _Listbooking = new ObservableCollection<bookingInfo>(DataProvider.Ins.DB.bookingInfoes);
             _Listbooking = new ObservableCollection<bookingInfo>(DataProvider.Ins.DB.bookingInfoes);
@@ -387,14 +413,14 @@ namespace SportCenter.ViewModel
             {
                 ListbookingCombobox.Clear();
             }
-                foreach (var item in tempbooking)
+            foreach (var item in tempbooking)
             {
                 if (item.Status == "unpay")
                 {
                     ListbookingCombobox.Add(item);
                 }
             }
-            
+
         }
 
         public void AddGoods(Grid parameter)
@@ -731,7 +757,9 @@ namespace SportCenter.ViewModel
                 adding = temp_list1[i];
                 adding.Baseinfo_SumCusMoneyAmount = total1;
                 adding.Baseinfo_SumBillAmount = billnum;
+
                 temp_list3.Add(adding);
+
             }
             foreach (var item in temp_list2)
             {

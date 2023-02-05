@@ -17,7 +17,9 @@ namespace SportCenter.Model
         public int id { get; set; }
         public decimal totalmoney { get; set; }
         public int idBookingInfo { get; set; }
+        public int idAccount { get; set; }
     
+        public virtual account account { get; set; }
         public virtual bookingInfo bookingInfo { get; set; }
     }
 }
