@@ -1541,7 +1541,7 @@
 
                     </Grid>
                 </TabItem>
-                <TabItem Visibility="{Binding EmployeeTabVisibility}">
+                <TabItem  Visibility="{Binding EmployeeTabVisibility}">
                     <TabItem.Header>
                         <StackPanel
                             Width="auto"

@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
-using System.Drawing;
 
 namespace SportCenter.ViewModel
 {
@@ -26,6 +20,10 @@ namespace SportCenter.ViewModel
 
         public Byte[] ConvertImageToBytes(string imageFileName)
         {
+            if (string.IsNullOrEmpty(imageFileName))
+            {
+                return null;
+            }
             FileStream fs = new FileStream(imageFileName, FileMode.Open, FileAccess.Read);
 
             //Initialize a byte array with size of stream

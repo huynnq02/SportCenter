@@ -95,7 +95,14 @@ namespace SportCenter.ViewModel
                 GlobalData.id = account.id;
                 GlobalData.role = account.role;
                 GlobalData.name = account.name;
-                MessageBox.Show(GlobalData.isLoggedIn + " " + GlobalData.username + " " + GlobalData.id + " " + GlobalData.role + " " + GlobalData.role.Equals("staff"));
+                EmployeeViewModel evm = new EmployeeViewModel();
+                evm.LoadDataAfterLogin();
+                /*  MainViewModel mainViewModel = MainViewModel.Instance;
+                  if (GlobalData.role.Equals("Staff"))
+                  {
+                      mainViewModel.EmployeeTabVisibility = Visibility.Collapsed;
+                  }*/
+                MessageBox.Show(GlobalData.isLoggedIn + " " + GlobalData.username + " " + GlobalData.id + " " + GlobalData.role + " " + GlobalData.role.Equals("Staff"));
 
                 p.Close();
             }
