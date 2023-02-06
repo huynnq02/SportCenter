@@ -150,24 +150,27 @@
                                                     RadiusX="6"
                                                     RadiusY="6"
                                                     Stroke="Gray" />
-                                <TextBox
-                                                    x:Name="txtUnit1"
-                                                    Width="210"
-                                                    Height="40"
-                                                    Margin="0,0,10,0"
-                                                    Padding="0"
-                                                    HorizontalAlignment="Right"
-                                                    HorizontalContentAlignment="Left"
-                                                    VerticalContentAlignment="Center"
-                                                    materialDesign:HintAssist.Hint="Role"
-                                                    BorderThickness="0"
-                                                    Cursor="IBeam"
-                                                    FontSize="14"
-                                                    FontWeight="SemiBold"
-                                                    Foreground="Gray"
-                                                    MaxLines="1"
-                                                    Text="{Binding roleemployee, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
-                            </Grid>
+                            <ComboBox
+    x:Name="cmbUnit1"
+    Width="210"
+    Height="40"
+    Margin="0,0,10,0"
+    Padding="0"
+    HorizontalAlignment="Right"
+    VerticalContentAlignment="Center"
+    materialDesign:HintAssist.Hint="Role"
+    BorderThickness="0"
+    FontSize="14"
+    FontWeight="SemiBold"
+    Foreground="Gray"
+    SelectedValue="{Binding roleemployee, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+    SelectedValuePath="Content"
+    SelectedIndex="2">
+                                <ComboBoxItem Content="Owner" />
+                                <ComboBoxItem Content="Manager" />
+                                <ComboBoxItem Content="Staff" />
+                            </ComboBox>
+                        </Grid>
                             <Grid
                                                 Width="350"
                                                 Height="40"
@@ -268,23 +271,21 @@
                                                     RadiusX="6"
                                                     RadiusY="6"
                                                     Stroke="Gray" />
-                                <TextBox
-                                                    x:Name="txtBirth"
-                                                    Width="210"
-                                                    Height="40"
-                                                    Margin="0,0,10,0"
-                                                    Padding="0"
-                                                    HorizontalAlignment="Right"
-                                                    HorizontalContentAlignment="Left"
-                                                    VerticalContentAlignment="Center"
-                                                    materialDesign:HintAssist.Hint="Birthday"
-                                                    BorderThickness="0"
-                                                    Cursor="IBeam"
-                                                    FontSize="14"
-                                                    FontWeight="SemiBold"
-                                                    Foreground="Gray"
-                                                    Text="{Binding dateOfBirthemployee, StringFormat='dd/MM/yyyy', Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                            </Grid>
+                            <DatePicker
+    x:Name="dpBirth"
+    Width="210"
+    Height="40"
+    Margin="0,0,10,0"
+    HorizontalAlignment="Right"
+    VerticalContentAlignment="Center"
+    materialDesign:HintAssist.Hint="Birthday"
+    BorderThickness="0"
+    FontSize="14"
+    FontWeight="SemiBold"
+    Foreground="Gray"
+                                
+    SelectedDate="{Binding dateOfBirthemployee, StringFormat='dd/MM/yyyy', Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        </Grid>
                             <Grid
                                                 Width="350"
                                                 Height="40"
@@ -323,7 +324,7 @@
                                                     FontWeight="SemiBold"
                                                     Foreground="Gray"
                                                     MaxLines="1"
-                                                    Text="{Binding usernameemployee, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                                                    Text="{Binding username, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
                         </Grid>
                         <Grid
                                                 Width="350"
@@ -363,7 +364,7 @@
                                                     FontWeight="SemiBold"
                                                     Foreground="Gray"
                                                     MaxLines="1"
-                                                    Text="{Binding passwordemployee, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                                                    Text="{Binding password, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
                         </Grid>
                         <Grid
                                                 Width="350"
@@ -403,7 +404,7 @@
                                                     FontWeight="SemiBold"
                                                     Foreground="Gray"
                                                     MaxLines="1"
-                                                    Text="{Binding confirmpasswordemployee, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                                                    Text="{Binding confirmPassword, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
                         </Grid>
                     </Grid>
 

@@ -19,23 +19,32 @@ namespace SportCenter.ViewModel
     public class MainViewModel : BaseViewModel
 
     {
+        private static MainViewModel _instance;
+
+        public static MainViewModel Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new MainViewModel();
+                }
+
+                return _instance;
+            }
+        }
         private Visibility _employeeTabVisibility;
         public Visibility EmployeeTabVisibility
         {
             get
             {
-                _employeeTabVisibility = GlobalData.isLoggedIn == true && GlobalData.role.Equals("staff")
-                    ? Visibility.Collapsed
-                    : Visibility.Visible;
                 return _employeeTabVisibility;
             }
             set
             {
                 _employeeTabVisibility = value;
                 OnPropertyChanged();
-
             }
-
         }
 
         //ListBill
@@ -193,9 +202,22 @@ namespace SportCenter.ViewModel
         }
         private MainWindow mainWindow;
         public MainWindow MainWindow { get => mainWindow; set => mainWindow = value; }
-
+        public void SetEmployeeTabVisibility()
+        {
+            if (GlobalData.isLoggedIn == true && GlobalData.role.Equals("Staff"))
+            {
+                _employeeTabVisibility = Visibility.Collapsed;
+            }
+            else
+            {
+                _employeeTabVisibility = Visibility.Visible;
+            }
+            OnPropertyChanged("EmployeeTabVisibility");
+        }
         public MainViewModel()
         {
+            EmployeeTabVisibility = Visibility.Visible;
+
             _ListbookingCombobox = new ObservableCollection<bookingInfo>();
             _Listbooking = new ObservableCollection<bookingInfo>(DataProvider.Ins.DB.bookingInfoes);
             _Listbooking = new ObservableCollection<bookingInfo>(DataProvider.Ins.DB.bookingInfoes);

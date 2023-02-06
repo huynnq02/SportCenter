@@ -19,11 +19,11 @@
 
 
 
-        public sportcenterEntities6 DB { get; set; }
+        public sportcenterEntities5 DB { get; set; }
 
         private DataProvider()
         {
-            DB = new sportcenterEntities6();
+            DB = new sportcenterEntities5();
 
 
         }
